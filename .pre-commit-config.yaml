@@ -1,0 +1,9 @@
+default_language_version:
+    # default language version for each language
+    python: python3.8
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.4.0
+      hooks:
+          - id: black
+          - id: trailing-whitespace
