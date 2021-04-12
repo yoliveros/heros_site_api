@@ -16,6 +16,13 @@ repos:
       rev: 'pylint-2.7.4'
       hooks:
           - id: pylint
+            exclude: '[a-zA-Z]*/(migrations)/(.)*'
+            args:
+                [
+                    '--load-plugins=pylint_django',
+                    '--django-settings-module=app.settings',
+                ]
+            additional_dependencies: [pylint_django]
     - repo: https://github.com/psf/black
       rev: 20.8b1
       hooks:
