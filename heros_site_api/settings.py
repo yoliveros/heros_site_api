@@ -78,14 +78,12 @@ WSGI_APPLICATION = "heros_site_api.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "OPTIONS": {
-            "HOST": "sql5.freemysqlhosting.net",
-            "PORT": 3306,
-            "NAME": "sql5404838",
-            "USER": "sql5404838",
-            "PASSWORD": "ENjnfw8a76",
-        },
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "db5n4ugtlee24f",
+        "USER": "mbwogelzsheubc",
+        "PASSWORD": "e8ae70dff4d987a058f710832e7f0a580063d112a6ceff822a057adeae176fac",
+        "HOST": "ec2-3-217-219-146.compute-1.amazonaws.com",
+        "PORT": 5432,
     }
 }
 
