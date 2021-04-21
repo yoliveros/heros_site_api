@@ -1,19 +1,18 @@
-from django.db import models
 import uuid
+from django.db import models
 
 # Create your models here.
 
 
 class User(models.Model):
-    id = models.CharField(primary_key=True, max_length=64, 
-    default=uuid.uuid1())
+    id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
     email = models.EmailField()
     user_name = models.CharField(max_length=64)
     password = models.CharField(max_length=256)
     type_user = models.BooleanField()
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Company(models.Model):
@@ -21,7 +20,7 @@ class Company(models.Model):
     name = models.CharField(max_length=64)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Character(models.Model):
@@ -34,7 +33,7 @@ class Character(models.Model):
     )
 
     def __str__(self):
-        self.id
+        return str(self.id)
 
 
 class Score(models.Model):
@@ -46,4 +45,4 @@ class Score(models.Model):
     points = models.SmallIntegerField()
 
     def __str__(self):
-        return self.id
+        return str(self.id)
