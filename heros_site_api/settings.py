@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "heros_apis.apps.HerosApisConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

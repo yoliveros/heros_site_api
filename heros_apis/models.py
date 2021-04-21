@@ -5,8 +5,7 @@ import uuid
 
 
 class User(models.Model):
-    id = models.CharField(primary_key=True, max_length=64,
-                          default=uuid.uuid1())
+    id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
     email = models.EmailField()
     user_name = models.CharField(max_length=64)
     password = models.CharField(max_length=256)
@@ -16,34 +15,34 @@ class User(models.Model):
         return self.id
 
 
-class Score(models.Model):
-    id = models.CharField(primary_key=True, max_length=64,
-                          default=uuid.uuid1())
-    id_character = models.ForeignKey("Characters", on_delete=models.CASCADE)
-    id_user = models.ForeignKey("Users", on_delete=models.CASCADE)
-    points = models.IntegerField(max_length=1)
+class Company(models.Model):
+    id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
+    name = models.CharField(max_length=64)
 
     def __str__(self):
         return self.id
 
 
 class Character(models.Model):
-    id = models.CharField(primary_key=True, max_length=64,
-                          default=uuid.uuid1())
+    id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
     name = models.CharField(max_length=64)
     alias = models.CharField(max_length=64)
-    image = models.ImageField()
-    id_score = models.ForeignKey("Score", on_delete=models.CASCADE)
-    id_company = models.ForeignKey("Company", on_delete=models.CASCADE)
+    image = models.CharField(max_length=512)
+    id_company = models.ForeignKey(
+        "heros_apis.Company", on_delete=models.CASCADE
+    )
 
     def __str__(self):
         self.id
 
 
-class Company(models.Model):
-    id = models.CharField(primary_key=True, max_length=64,
-                          default=uuid.uuid1())
-    name = models.CharField(max_length=64)
+class Score(models.Model):
+    id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
+    id_character = models.ForeignKey(
+        "heros_apis.Character", on_delete=models.CASCADE
+    )
+    id_user = models.ForeignKey("heros_apis.User", on_delete=models.CASCADE)
+    points = models.SmallIntegerField()
 
     def __str__(self):
         return self.id
