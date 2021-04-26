@@ -146,7 +146,7 @@ disable=print-statement,
         comprehension-escape,
         C0114,
         C0115,
-        # C0116 - function docstring
+        C0116,
         E0401,
         R0903
 

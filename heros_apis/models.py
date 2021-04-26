@@ -6,10 +6,10 @@ from django.db import models
 
 class User(models.Model):
     id = models.CharField(primary_key=True, max_length=64, default=uuid.uuid1())
-    email = models.EmailField()
-    user_name = models.CharField(max_length=64)
+    email = models.EmailField(unique=True)
+    user_name = models.CharField(max_length=64, unique=True)
     password = models.CharField(max_length=256)
-    type_user = models.BooleanField()
+    is_admin = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.id)
