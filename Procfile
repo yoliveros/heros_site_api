@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT heros_apis.wsgi:application
+web: waitress-serve --port=$PORT heros_site_api.wsgi:application
